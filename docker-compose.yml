@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:13.1
+    container_name: ktor_jdbi_postgress
+    ports:
+      - 5435:5432
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: sample
+      POSTGRES_PASSWORD: sample
+      POSTGRES_DB: sample
+      POSTGRES_INITDB_ARGS: '--encoding=UTF-8'
+      TZ: 'Asia/Tokyo'
+    restart: always
